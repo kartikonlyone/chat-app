@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: ['http://localhost:3001','http://localhost:3000']
 }));
 app.use(bodyParser.json());
 
@@ -67,7 +67,7 @@ const server = http.createServer(app);
 // Initialize WebSocket server
 const io = socketIo(server,{
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3001","http://localhost:3000"],
     methods: ["GET", "POST"]
   }
 });
